@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&family=Moirai+One&display=swap");
+
+/* MOBILE FIRST DESIGN */
+
+:root {
+  --square-size: 6rem;
+  --square-bg-color: #d7fff3;
+  --square-border: 2px solid #000;
+  --key-size: 4rem;
+  --key-size-double: 8rem;
+  --key-color-main: #fff;
+  --key-color-sec: #222;
+  --key-font-size: 2.5rem;
+  --alert-bg-color: var(--yellow);
+  --blue: #17cdff;
+  --green: #25ff80;
+  --yellow: #fff27b;
+  --red: #ff8a8a;
+  --gray: #696969;
+  --disabled: #999;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Balsamiq Sans", cursive;
+  font-size: 10px;
+}
+
+body {
+  background-color: #229adb;
+  color: #333;
+  text-align: center;
+  user-select: none;
+}
+
+.alert {
+  background-color: var(--alert-bg-color);
+  color: #333;
+  font-size: 2.5rem;
+  height: 6rem;
+  width: 90%;
+  margin: 0rem auto;
+  padding: 4rem 0;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.play-again {
+  background-color: var(--red);
+  color: #333;
+  font-size: 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.play-again:active {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.loading {
+  background-color: #229adb;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.loader {
+  height: 48px;
+  width: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: #ff3d00;
+  border-radius: 50%;
+  animation: rotation 1s linear infinite;
+}
+
+.title {
+  color: whitesmoke;
+  font-family: "Moirai One", cursive;
+  font-size: 7rem;
+}
+
+.streak {
+  color: #fff;
+  font-size: 2.5rem;
+}
+
+.row1 {
+  margin-top: 1rem;
+}
+
+.row,
+.key-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.key-row {
+  width: 100%;
+}
+
+.square {
+  background-color: var(--square-bg-color);
+  color: var(--key-color-sec);
+  height: var(--square-size);
+  width: var(--square-size);
+  border: var(--square-border);
+  margin: 0.5rem;
+  font-size: 4rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square,
+.key,
+.key-submit {
+  border-radius: 0.5rem;
+}
+
+.keyboard {
+  margin: 4rem auto;
+  width: 100%;
+}
+
+.key,
+.key-submit {
+  background-color: var(--key-color-main);
+  height: var(--key-size);
+  width: var(--key-size);
+  font-size: var(--key-font-size);
+  font-weight: bold;
+  border: 1px solid var(--key-color-sec);
+  margin: 0.6rem 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.key:hover,
+.key-submit:hover {
+  background-color: var(--key-color-sec);
+  color: var(--key-color-main);
+  cursor: pointer;
+}
+
+.key-submit {
+  margin: 0.6rem auto;
+  padding: 0.7rem;
+  max-width: 30rem;
+  width: 100%;
+}
+
+.disabled {
+  background-color: var(--disabled);
+  color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.gray {
+  background-color: var(--gray);
+  color: var(--key-color-sec);
+}
+
+.yellow {
+  background-color: var(--yellow);
+  color: var(--key-color-sec);
+}
+
+.green {
+  background-color: var(--green);
+  color: var(--key-color-sec);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 641px) {
+  :root {
+    --square-size: 10rem;
+    --key-size: 7rem;
+    --key-size-double: 15rem;
+  }
+
+  .alert {
+    font-size: 3rem;
+    margin: 3rem auto;
+    width: 60%;
+  }
+
+  .title {
+    font-size: 10rem;
+  }
+
+  .streak {
+    font-size: 3rem;
+  }
+
+  .row1 {
+    margin-top: 2rem;
+  }
+
+  .square {
+    font-size: 6rem;
+  }
+
+  .keyboard {
+    margin: 5rem auto;
+  }
+
+  .key {
+    margin: 0.5rem;
+  }
+
+  .key-submit {
+    max-width: 50rem;
+    margin: 2rem auto;
+  }
+}
