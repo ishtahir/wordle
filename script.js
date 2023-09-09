@@ -1,4 +1,4 @@
-import { dictionaryApiKey } from "./hidden/apis.js";
+// import { dictionaryApiKey } from "./hidden/apis.js";
 
 const keys = Array.from(document.querySelectorAll(".key"));
 const myAlert = document.querySelector(".alert");
@@ -97,13 +97,15 @@ async function getNewWord() {
 }
 
 function checkWordValidity(word) {
-  const dictionaryUrl = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${dictionaryApiKey}`;
+  // const dictionaryUrl = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${dictionaryApiKey}`;
+  const freeDictionaryUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
 
   return new Promise((res) => {
-    fetch(dictionaryUrl)
+    fetch(freeDictionaryUrl)
       .then((result) => result.json())
       .then((data) => {
-        data[0]?.meta?.id ? res(true) : res(false);
+        // data[0]?.meta?.id ? res(true) : res(false);
+        data[0]?.word ? res(true) : res(false);
       })
       .catch((err) => console.error(err));
   });
